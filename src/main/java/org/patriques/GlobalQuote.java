@@ -1,7 +1,7 @@
 package org.patriques;
 
 import org.patriques.input.Function;
-import org.patriques.input.Symbols;
+import org.patriques.input.Symbol;
 import org.patriques.output.quote.GlobalQuoteResponse;
 
 /**
@@ -27,7 +27,7 @@ public class GlobalQuote {
    * @return {@link GlobalQuoteResponse} stock quote data
    */
   public GlobalQuoteResponse quote(String symbol) {
-    String json = apiConnector.getRequest(new Symbols(symbol), Function.GLOBAL_QUOTE);
+    String json = apiConnector.getRequest(new Symbol(symbol), Function.GLOBAL_QUOTE);
     return GlobalQuoteResponse.from(json);
   }
 }
