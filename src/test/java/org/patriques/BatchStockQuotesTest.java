@@ -16,22 +16,6 @@ public class BatchStockQuotesTest {
 
   @Test
   public void singleStockQuote() {
-//    String json = "" +
-//            "{\n" +
-//            "    \"Meta Data\": {\n" +
-//            "        \"1. Information\": \"Batch Stock Market Quotes\",\n" +
-//            "        \"2. Notes\": \"IEX Real-Time Price provided for free by IEX (https://iextrading.com/developer/).\",\n" +
-//            "        \"3. Time Zone\": \"US/Eastern\"\n" +
-//            "    },\n" +
-//            "    \"Stock Quotes\": [\n" +
-//            "        {\n" +
-//            "            \"1. symbol\": \"MSFT\",\n" +
-//            "            \"2. price\": \"96.3850\",\n" +
-//            "            \"3. volume\": \"987654321\",\n" +
-//            "            \"4. timestamp\": \"2018-05-18 15:59:48\"\n" +
-//            "        }\n" +
-//            "    ]\n" +
-//            "}";
 
     String json ="{\r\n    \"Global Quote\": {\r\n        \"01. symbol\": \"IBM\",\r\n        \"02. open\": \"114.0000\",\r\n        \"03. high\": \"116.8500\",\r\n        \"04. low\": \"112.0600\",\r\n        \"05. price\": \"115.8200\",\r\n        \"06. volume\": \"10604560\",\r\n        \"07. latest trading day\": \"2020-04-21\",\r\n        \"08. previous close\": \"120.4100\",\r\n        \"09. change\": \"-4.5900\",\r\n        \"10. change percent\": \"-3.8120%\"\r\n    }\r\n}";
     GlobalQuote batchStockQuotes = new GlobalQuote(parameters -> json);
@@ -48,22 +32,8 @@ public class BatchStockQuotesTest {
 
   @Test
   public void stockNoVolume() {
-    String json = "" +
-            "{\n" +
-            "    \"Meta Data\": {\n" +
-            "        \"1. Information\": \"Batch Stock Market Quotes\",\n" +
-            "        \"2. Notes\": \"IEX Real-Time Price provided for free by IEX (https://iextrading.com/developer/).\",\n" +
-            "        \"3. Time Zone\": \"US/Eastern\"\n" +
-            "    },\n" +
-            "    \"Stock Quotes\": [\n" +
-            "        {\n" +
-            "            \"1. symbol\": \"MSFT\",\n" +
-            "            \"2. price\": \"96.3850\",\n" +
-            "            \"3. volume\": \"--\",\n" +
-            "            \"4. timestamp\": \"2018-05-18 15:59:48\"\n" +
-            "        }\n" +
-            "    ]\n" +
-            "}";
+    String json ="{\r\n    \"Global Quote\": {\r\n        \"01. symbol\": \"IBM\",\r\n        \"02. open\": \"114.0000\",\r\n        \"03. high\": \"116.8500\",\r\n        \"04. low\": \"112.0600\",\r\n        \"05. price\": \"115.8200\",\r\n        \"06. volume\": \"\",\r\n        \"07. latest trading day\": \"2020-04-21\",\r\n        \"08. previous close\": \"120.4100\",\r\n        \"09. change\": \"-4.5900\",\r\n        \"10. change percent\": \"-3.8120%\"\r\n    }\r\n}";
+
     GlobalQuote batchStockQuotes = new GlobalQuote(parameters -> json);
     GlobalQuoteResponse resp = batchStockQuotes.quote("DUMMY");
 
